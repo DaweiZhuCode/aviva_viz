@@ -19,10 +19,10 @@ Aviva Viz is a Python script that bundles the frontend assets. You only need a s
 
 ```bash
 # Clone the repository
-git clone https://github.com/DaweiZhuCode/aviva-viz.git
+git clone https://github.com/DaweiZhuCode/aviva_viz.git
 
 # Navigate to the directory
-cd aviva-viz
+cd aviva_viz
 
 # No pip install required! (Standard library only)
 ```
