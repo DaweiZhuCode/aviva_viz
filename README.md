@@ -5,7 +5,7 @@
 ## 🚀 Features
 
 - **Single-File Output**: Generates a self-contained `aviva_dashboard.html` that can be shared and opened in any modern browser.
-- **Client-Side Processing**: Load CSV or JSON files via Drag & Drop. Data never leaves your browser.
+- **Client-Side rocessing**: Load CSV or JSON files via Drag & Drop. Data never leaves your browser.
 - **Interactive Visualizations**:
   - **Graphs**: Create Scatter, Bar, and Line charts dynamically.
   - **Data Summary**: Auto-calculated statistics (Mean, Median, Std Dev, etc.).
