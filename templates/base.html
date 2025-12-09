@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIVA | VIZ</title>
+    {STYLE}
+</head>
+
+<body>
+
+    <header>
+        <img src="{LOGO}" alt="Aviva" style="max-height: 50px;">
+        <div style="font-size: 12px; color: #666;">V 1.2</div>
+    </header>
+
+    <main>
+        <aside>
+            <div id="drop-zone">
+                <div style="font-size: 24px; margin-bottom: 10px;">📂</div>
+                Drop Files Here (CSV/JSON)<br>
+                <span style="font-size: 10px; opacity: 0.5;">or click to browse</span>
+                <input type="file" id="file-input" style="display: none;" accept=".csv,.json,.pkl,.pickle,.parquet"
+                    multiple>
+            </div>
+
+            <div class="panel">
+                <div style="font-size: 10px; color: var(--text-color); opacity: 0.7; margin-bottom: 5px;">LOADED FILES
+                </div>
+                <div id="file-list" style="display: flex; flex-direction: column; gap: 5px;"></div>
+
+                <div style="margin-top: 15px; border-top: 1px solid rgba(0,83,159,0.1); padding-top: 10px;">
+                    <div id="file-meta" style="color: var(--neon-cyan); font-weight: bold; font-size: 12px;">No File
+                        Loaded</div>
+                    <div id="row-count" style="font-size: 10px; color: var(--aviva-green); margin-top: 2px;"></div>
+                </div>
+            </div>
+
+            <div class="panel" id="controls" style="opacity: 0.5; pointer-events: none;">
+                <button class="btn" onclick="openModal()">+ New Visualization</button>
+                <button class="btn" id="btn-data-summary" onclick="addDataSummary()" style="margin-top: 10px;">Data
+                    Summary</button>
+                <button class="btn" id="btn-ds-table" onclick="openDataScienceTable()" style="margin-top: 10px;">Data
+                    Science Table</button>
+                <button class="btn" id="btn-clear-all" onclick="clearDashboard()" style="margin-top: 20px;">Clear
+                    All</button>
+                <button class="btn" id="btn-save-dashboard" onclick="saveDashboard()" style="margin-top: 5px;">Save
+                    Dashboard</button>
+            </div>
+        </aside>
+
+        <section id="dashboard">
+
+        </section>
+    </main>
+
+
+    <div class="modal" id="config-modal">
+        <div class="modal-content">
+            <button class="btn-close" onclick="closeModal()">✕</button>
+            <h2 style="margin-bottom: 20px; font-weight: 300;">CONFIGURE <span
+                    style="color: var(--neon-pink)">MODULE</span></h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                    <label>CATEGORY (Group)</label>
+                    <input type="text" id="graph-category" placeholder="e.g. Finance">
+                </div>
+                <div class="form-group">
+                    <label>SUBCATEGORY</label>
+                    <input type="text" id="graph-subcategory" placeholder="e.g. Q1 2024">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>GRAPH TITLE (Optional)</label>
+                <input type="text" id="graph-title" placeholder="e.g. Sales Q1">
+            </div>
+
+            <div class="form-group">
+                <label>SUBTITLE (Optional)</label>
+                <input type="text" id="graph-subtitle" placeholder="e.g. region: North America">
+            </div>
+
+            <div class="form-group">
+                <label>X - AXIS (Domain)</label>
+                <select id="axis-x">
+                    <option>Load Data First</option>
+                </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                    <label>PRIMARY Y-AXIS (Left)</label>
+                    <select id="axis-y">
+                        <option>Load Data First</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>SECONDARY Y-AXIS (Right) <span
+                            style="font-size: 8px; color: #ff9900; opacity: 0.7;">(OPT)</span></label>
+                    <select id="axis-y2">
+                        <option value="">-- None --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="form-group">
+                    <label>PRIMARY GRAPH TYPE</label>
+                    <select id="chart-type">
+                        <option value="line">Line Chart</option>
+                        <option value="bar">Bar Chart</option>
+                        <option value="scatter">Scatter Plot</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>SECONDARY GRAPH TYPE</label>
+                    <select id="chart-type-2">
+                        <option value="line">Line Chart</option>
+                        <option value="bar">Bar Chart</option>
+                        <option value="scatter">Scatter Plot</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn" style="border-color: var(--neon-pink); color: var(--neon-pink);"
+                onclick="addGraph()">INITIATE RENDER</button>
+        </div>
+    </div>
+
+    {SCRIPT}
+</body>
+
+</html>
